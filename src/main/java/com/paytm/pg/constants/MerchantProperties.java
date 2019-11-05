@@ -31,16 +31,14 @@ public class MerchantProperties {
 	 * @param environment can be STAGE for testing and PROD for production
 	 * @param mid         merchant id
 	 * @param merchantKey merchant key
-	 * @param clientId    merchant client id
 	 * @param website     merchant website
 	 */
-	public static void initialize(String environment, String mid, String merchantKey, String clientId, String website) {
+	public static void initialize(String environment, String mid, String merchantKey, String website) {
 		if (!isInitialized) {
 			isInitialized = true;
 			setEnvironment(environment);
 			setMid(mid);
 			setMerchantKey(merchantKey);
-			setClientId(clientId);
 			setWebsite(website);
 			LibraryConstants.LOGGER.log(Level.INFO, CommonUtil.getLogMessage("MerchantProperties : Initialized"));
 		}
