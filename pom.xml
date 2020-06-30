@@ -5,7 +5,7 @@
 	
 	<groupId>com.paytm.pg</groupId>
 	<artifactId>paytm-pg</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.6</version>
 	<packaging>jar</packaging>
 
 	<name>paytm-pg</name>

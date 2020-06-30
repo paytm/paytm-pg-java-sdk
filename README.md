@@ -20,7 +20,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>com.paytm.pg</groupId>
     <artifactId>pg-java</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.6</version>
 </dependency>
 ```
 
@@ -29,7 +29,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.paytm.pg:pg-java:0.0.1"
+compile "com.paytm.pg:pg-java:0.0.6"
 ```
 
 ## Usage

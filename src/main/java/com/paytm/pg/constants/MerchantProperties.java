@@ -31,14 +31,16 @@ public class MerchantProperties {
 	 * @param environment can be STAGE for testing and PROD for production
 	 * @param mid         merchant id
 	 * @param merchantKey merchant key
+	 * @param clientId    client id
 	 * @param website     merchant website
 	 */
-	public static void initialize(String environment, String mid, String merchantKey, String website) {
+	public static void initialize(String environment, String mid, String merchantKey, String clientId, String website) {
 		if (!isInitialized) {
 			isInitialized = true;
 			setEnvironment(environment);
 			setMid(mid);
 			setMerchantKey(merchantKey);
+			setClientId(clientId);
 			setWebsite(website);
 			LibraryConstants.LOGGER.log(Level.INFO, CommonUtil.getLogMessage("MerchantProperties : Initialized"));
 		}
@@ -69,15 +71,15 @@ public class MerchantProperties {
 	private static String clientId;
 
 	/** callback url on which paytm will respond for api calls */
-	private static String callbackUrl = "https://pg-staging.paytm.in/MerchantSite/bankResponse";
+	private static String callbackUrl = "";
 
 	/** URLs */
 	private static String baseUrl = "https://securegw-stage.paytm.in";
-	private static String initiateTxnUrl = baseUrl + "/theia/api/v1/initiateTransaction";
+	private static String initiateTxnUrl = baseUrl + "/order/initiate";
 	private static String processTransactionDefaultUrl = baseUrl + "/theia/processTransaction";
-	private static String refundUrl = baseUrl + "/refund/api/v1/async/refund";
-	private static String refundStatusUrl = baseUrl + "/refund/api/v1/refundStatus";
-	private static String paymentStatusUrl = baseUrl + "/merchant-status/api/v1/getPaymentStatus";
+	private static String refundUrl = baseUrl + "/refund/apply";
+	private static String refundStatusUrl = baseUrl + "/v2/refund/status";
+	private static String paymentStatusUrl = baseUrl + "/v3/order/status";
 
 	/**
 	 * 
@@ -224,10 +226,11 @@ public class MerchantProperties {
 		MerchantProperties.environment = environment;
 		if (environment.equals(LibraryConstants.PRODUCTION_ENVIRONMENT)) {
 			baseUrl = "https://securegw.paytm.in";
-			initiateTxnUrl = baseUrl + "/theia/api/v1/initiateTransaction";
+			initiateTxnUrl = baseUrl + "/order/initiate";
 			processTransactionDefaultUrl = baseUrl + "/theia/processTransaction";
-			refundUrl = baseUrl + "/refund/api/v1/async/refund";
-			paymentStatusUrl = baseUrl + "/merchant-status/api/v1/getPaymentStatus";
+			refundUrl = baseUrl + "/refund/apply";
+			paymentStatusUrl = baseUrl + "/v3/order/status";
+			refundStatusUrl = baseUrl + "/v2/refund/status";
 		}
 	}
 }
