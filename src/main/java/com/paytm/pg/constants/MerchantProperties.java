@@ -74,7 +74,7 @@ public class MerchantProperties {
 	private static String callbackUrl = "";
 
 	/** URLs */
-	private static String baseUrl = "https://securegw-stage.paytm.in";
+	private static String baseUrl = "https://securestage.paytmpayments.com";
 	private static String initiateTxnUrl = baseUrl + "/order/initiate";
 	private static String processTransactionDefaultUrl = baseUrl + "/theia/processTransaction";
 	private static String refundUrl = baseUrl + "/refund/apply";
@@ -225,7 +225,7 @@ public class MerchantProperties {
 		LOGGER.log(Level.INFO, CommonUtil.getLogMessage("Setting Environment for {0} "), environment);
 		MerchantProperties.environment = environment;
 		if (environment.equals(LibraryConstants.PRODUCTION_ENVIRONMENT)) {
-			baseUrl = "https://securegw.paytm.in";
+			baseUrl = "https://secure.paytmpayments.com";
 			initiateTxnUrl = baseUrl + "/order/initiate";
 			processTransactionDefaultUrl = baseUrl + "/theia/processTransaction";
 			refundUrl = baseUrl + "/refund/apply";
